@@ -3,6 +3,8 @@
 import sys
 
 prev_line = ""
+line = ""
+line_occurrences = 1
 
 for line in sys.stdin:
 	line = line.strip()
