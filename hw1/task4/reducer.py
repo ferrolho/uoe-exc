@@ -4,20 +4,21 @@ import sys
 
 line = ""
 prev_line = ""
-line_occurrences = 1
+count_total = 0
 
 for line in sys.stdin:
-	line = line.strip()
+	line, count = line.strip().split('\t')
+	count = int(count)
 
 	if prev_line == line:
-		line_occurrences += 1
+		count_total += count
 	else:
 		if prev_line:
-			print(prev_line, line_occurrences, sep='\t')
+			print(prev_line, count_total, sep='\t')
 
-		line_occurrences = 1
+		count_total = count
 		prev_line = line
 
 # Don't forget the last line
 if prev_line == line:
-	print(prev_line, line_occurrences, sep='\t')
+	print(prev_line, count_total, sep='\t')
