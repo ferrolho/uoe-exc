@@ -17,4 +17,4 @@ for line in sys.stdin:
 	if line_len > longest_line_len:
 		longest_line_len = line_len
 
-print(longest_word_len, longest_line_len)
+print(longest_word_len, longest_line_len, sep='\t')

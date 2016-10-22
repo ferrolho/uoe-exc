@@ -7,4 +7,4 @@ for line in sys.stdin:
 	tokens = line.split()
 
 	for token in tokens:
-		print(len(token), len(line))
+		print(len(token), len(line), sep='\t')
