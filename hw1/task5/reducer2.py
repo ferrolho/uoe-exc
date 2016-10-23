@@ -14,5 +14,5 @@ for line in sys.stdin:
 	key, value = line.strip().split('\t')
 	addToTop20(key, value)
 
-for k, v in top20.items():
-	print(k, v, sep='\t')
+for k, v in sorted(top20.items(), key=lambda x: x[1], reverse=True):
+	print(v, k, sep='\t')
