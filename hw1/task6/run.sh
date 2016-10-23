@@ -4,9 +4,11 @@ hdfs dfs -rm -r /user/$USER/assignment1/task6
 
 hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \
   -D mapreduce.job.name="Task 6 - s1683857" \
-  -jobconf mapreduce.map.output.key.field.separator=" " \
-  -jobconf num.key.fields.for.partition=2 \
- -files reducer.py \
+  -D stream.map.output.field.separator=" " \
+  -D stream.num.map.output.key.fields=3 \
+  -D mapreduce.map.output.key.field.separator=" " \
+  -D num.key.fields.for.partition=2 \
+  -files reducer.py \
  -input  /user/$USER/assignment1/task4/part-* \
  -output /user/$USER/assignment1/task6 \
  -mapper  cat \
