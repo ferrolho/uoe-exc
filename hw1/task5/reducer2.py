@@ -12,6 +12,7 @@ def addToTop20(key, value):
 
 for line in sys.stdin:
 	key, value = line.strip().split('\t')
+	value = int(value)
 	addToTop20(key, value)
 
 for k, v in sorted(top20.items(), key=lambda x: x[1], reverse=True):
