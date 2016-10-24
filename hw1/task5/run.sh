@@ -25,8 +25,8 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
   -D stream.num.map.output.key.fields=2 \
   -D mapreduce.partition.keycomparator.options="-k2,2nr" \
   -D mapreduce.job.reduces=1 \
-  -files reducer.py \
+  -files reducer2.py \
  -input  /user/$USER/assignment1/task5-temp/part-* \
  -output /user/$USER/assignment1/task5 \
  -mapper  cat \
- -reducer reducer.py
+ -reducer reducer2.py
