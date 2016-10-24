@@ -20,6 +20,6 @@ for line in sys.stdin:
 	else:
 		courseId = tokens[2]
 		mark     = tokens[3]
-		print(' ({0}, {1}) '.format(courseId, mark), end='')
+		print(' ({0},{1}) '.format(courseId, mark), end='')
 
 print()
