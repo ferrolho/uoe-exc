@@ -9,3 +9,5 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
  -output /user/$USER/assignment1/task1 \
  -mapper  mapper.py \
  -reducer NONE
+
+hdfs dfs -cat /user/$USER/assignment1/task1/part-* | head -20 > output.out

@@ -26,6 +26,8 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
  -mapper  cat \
  -reducer reducer.py
 
+hdfs dfs -cat /user/$USER/assignment1/task3/part-* | head -20 > output.out
+
 #
 # Note:
 #   Running a combiner on the first part, and even making this a 2-job mapreduce solution,

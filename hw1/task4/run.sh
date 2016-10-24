@@ -11,6 +11,8 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
  -combiner reducer.py \
  -reducer  reducer.py
 
+hdfs dfs -cat /user/$USER/assignment1/task4/part-* | head -20 > output.out
+
 #
 # Note:
 #   Running a combiner might make things slower for small inputs.
