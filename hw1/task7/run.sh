@@ -16,3 +16,5 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
  -mapper  cat \
  -reducer reducer.py \
  -partitioner org.apache.hadoop.mapred.lib.KeyFieldBasedPartitioner
+
+hdfs dfs -cat /user/$USER/assignment1/task7/part-* | head -20 > output.out
