@@ -13,7 +13,7 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
   -D mapreduce.partition.keypartitioner.options="-k2,2n" \
   -D mapreduce.partition.keycomparator.options="-k2,2n -k1,1r" \
   -files reducer.py \
- -input  /data/assignments/ex1/uniSmall.txt \
+ -input  /data/assignments/ex1/uniLarge.txt \
  -output /user/$USER/assignment1/task8-temp \
  -mapper  cat \
  -reducer reducer.py \
