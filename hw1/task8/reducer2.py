@@ -3,7 +3,7 @@
 import sys
 
 best_avg = 0
-best_name = None
+best_names = []
 
 for line in sys.stdin:
 	name, avg = line.strip().split()
@@ -11,6 +11,10 @@ for line in sys.stdin:
 
 	if avg > best_avg:
 		best_avg = avg
-		best_name = name
+		del best_names[:]
+		best_names.append(name)
+	elif avg == best_avg:
+		best_names.append(name)
 
-print(best_name)
+for name in best_names:
+	print(name)
