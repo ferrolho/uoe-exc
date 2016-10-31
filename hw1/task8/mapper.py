@@ -4,14 +4,17 @@ import re
 import sys
 
 for line in sys.stdin:
-    name, pairs_list = line.strip().split(' --> ')
-    pairs_list = pairs_list.split('  ');
+    tokens = line.strip().split(' --> ')
 
-    avg = 0.0
+    if len(tokens) > 1:
+        name       = tokens[0]
+        pairs_list = tokens[1].split('  ')
 
-    for pair in pairs_list:
-        grade = re.search(',(.*)\)', pair).group(1)
-        avg  += float(grade)
+        avg = 0.0
 
-    if len(pairs_list) > 3:
-        print(name, avg / len(pairs_list), sep='\t')
+        for pair in pairs_list:
+            grade = re.search(',(.*)\)', pair).group(1)
+            avg  += float(grade)
+
+        if len(pairs_list) > 3:
+            print(name, avg / len(pairs_list), sep='\t')
