@@ -2,26 +2,14 @@
 
 import sys
 
-last_studentId = None
-last_name      = None
-name   = None
-avg    = 0.0
-weight = 0
+best_avg = None
 
 for line in sys.stdin:
-    studentId, name, running_avg, count = line.strip().split('\t')
+    name, avg = line.strip().split('\t')
+    avg = float(avg)
 
-    if studentId != last_studentId:
-        if last_studentId and weight > 3:
-            print(last_name, avg / weight, sep='\t')
-
-        last_studentId = studentId
-        last_name = name
-        avg    = 0.0
-        weight = 0
-
-    avg    += float(running_avg)
-    weight += int(count)
-
-if last_studentId and weight > 3:
-    print(last_name, avg / weight, sep='\t')
+    if not best_avg:
+    	best_avg = avg
+    
+    if avg == best_avg:
+    	print(name, avg, sep='\t')

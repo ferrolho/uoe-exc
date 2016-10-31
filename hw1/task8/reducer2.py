@@ -2,19 +2,14 @@
 
 import sys
 
-best_avg = 0
-best_names = []
+best_avg = None
 
 for line in sys.stdin:
-	name, avg = line.strip().split()
-	avg = float(avg)
+    name, avg = line.strip().split('\t')
+    avg = float(avg)
 
-	if avg > best_avg:
-		best_avg = avg
-		del best_names[:]
-		best_names.append(name)
-	elif avg == best_avg:
-		best_names.append(name)
-
-for name in best_names:
-	print(name)
+    if not best_avg:
+    	best_avg = avg
+    
+    if avg == best_avg:
+    	print(name)
