@@ -21,6 +21,9 @@ hdfs dfs -rm -r /user/$USER/assignment1/task8
 
 hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \
   -D mapreduce.job.name="Task 8 (Pt. 2) - s1683857" \
+  -D mapreduce.job.output.key.comparator.class=org.apache.hadoop.mapreduce.lib.partition.KeyFieldBasedComparator \
+  -D stream.num.map.output.key.fields=2 \
+  -D mapreduce.partition.keycomparator.options="-k2,2nr" \
   -D mapreduce.job.reduces=1 \
   -files reducer2.py \
  -input  /user/$USER/assignment1/task8-temp/part-* \
