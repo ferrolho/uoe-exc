@@ -4,7 +4,6 @@ import sys
 
 term = None
 prev_term = None
-freq_total = 0
 docToFreq = dict()
 
 def indexToString(index):
@@ -20,16 +19,13 @@ for line in sys.stdin:
 	term, doc, freq = line.strip().split('\t')
 	freq = int(freq)
 
-	docToFreq.clear()
-	docToFreq[doc] = freq
-
 	if prev_term == term:
-		freq_total += freq
+		docToFreq[doc] += freq
 	else:
 		if prev_term:
 			print(prev_term, len(docToFreq), indexToString(docToFreq), sep=' : ')
 
-		freq_total = freq
+		docToFreq[doc] = freq
 		prev_term = term
 
 # Don't forget the last line
