@@ -1,0 +1,8 @@
+Task 1 Mark: 2 #
+Task 2 Mark: 1.5 # - If an empty line appeared exactly once in the data, your solution would not print it. - You could make it more efficient by using an appropriate combiner.
+Task 3 Mark: 1.5 # A mapper should have produced only the lengths of longest token and line it observed. However you use combiners which alleviate the problem although this still resulted in unneccessary sorting (+0.5pt)
+Task 4 Mark: 5  # Good job on using a combiner.
+Task 5 Mark: 1 # - This could be solved using only 1 MR job, if your mapper was accumulating the top 20 counts in a priority queue and only printed those.
+Task 6 Mark: 2  # Inefficient because your are using an ubounded list.
+Task 7 Mark: 3  # Nice (;
+Task 8 Mark: 3  #
