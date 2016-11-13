@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 
+from collections import defaultdict
 import sys
 
 term = None
 prev_term = None
-docToFreq = dict()
+docToFreq = defaultdict(int)
 
 def indexToString(index):
 	string = ""
@@ -25,6 +26,7 @@ for line in sys.stdin:
 		if prev_term:
 			print(prev_term, len(docToFreq), indexToString(docToFreq), sep=' : ')
 
+		docToFreq.clear()
 		docToFreq[doc] = freq
 		prev_term = term
 
