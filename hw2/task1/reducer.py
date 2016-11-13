@@ -10,7 +10,7 @@ docToFreq = dict()
 def indexToString(index):
 	string = ""
 
-	for i, doc in enumerate(index):
+	for i, doc in enumerate(sorted(index)):
 		if i > 0: string += ', '
 		string += '({}, {})'.format(doc, index[doc])
 
@@ -20,6 +20,7 @@ for line in sys.stdin:
 	term, doc, freq = line.strip().split('\t')
 	freq = int(freq)
 
+	docToFreq.clear()
 	docToFreq[doc] = freq
 
 	if prev_term == term:
