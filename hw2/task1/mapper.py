@@ -3,7 +3,11 @@
 import os
 import sys
 
-for line in sys.stdin:
-	line.upper()
+input_file_path = os.environ["mapreduce_map_input_file"]
+doc = input_file_path.rsplit('/', 1)[-1]
 
-print(os.environ["mapreduce_map_input_file"])
+for line in sys.stdin:
+	terms = line.strip().split()
+	
+	for term in terms:
+		print(term, doc, 1, sep='\t')
