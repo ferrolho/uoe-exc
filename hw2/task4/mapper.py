@@ -18,6 +18,6 @@ for line in sys.stdin:
 	post = ET.fromstring(line).attrib
 
 	if postIsQuestionWithAcceptedAnswer(post):
-		print(post['Id'], post['PostTypeId'], post['AcceptedAnswerId'], sep='\t')
+		print(post['AcceptedAnswerId'])
 	elif postIsAnswer(post):
-		print(post['ParentId'], post['PostTypeId'], post['Id'], post['OwnerUserId'], sep='\t')
+		print(post['Id'], post['OwnerUserId'], sep='\t')
