@@ -8,7 +8,7 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
   -D mapreduce.partition.keycomparator.options="-nr" \
   -D mapreduce.job.reduces=1 \
   -files mapper.py,reducer.py \
- -input  /data/assignments/ex2/part2/stackSmall.txt \
+ -input  /data/assignments/ex2/part2/stackLarge.txt \
  -output /user/$USER/assignment2/task2 \
  -mapper  mapper.py \
  -reducer reducer.py
