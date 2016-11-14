@@ -2,21 +2,7 @@
 
 from heapq import heappush, heappushpop
 import sys
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-def parsePost(xml):
-	tokens = xml.strip().split()
-	result = dict()
-
-	for token in tokens:
-		key_value = token.split('=')
-		if len(key_value) == 2:
-			key, value = key_value
-			if key and value:
-				result[key] = value.strip('"')
-
-	return result
+import xml.etree.ElementTree as ET
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -28,7 +14,7 @@ def postIsQuestion(post):
 top10 = []
 
 for line in sys.stdin:
-	post = parsePost(line)
+	post = ET.fromstring(line).attrib
 
 	if postIsQuestion(post):
 		count = int(post['ViewCount'])
