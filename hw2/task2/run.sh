@@ -10,7 +10,7 @@ hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.
   -files mapper.py,reducer.py \
  -input  /data/assignments/ex2/part2/stackSmall.txt \
  -output /user/$USER/assignment2/task2 \
- -mapper   mapper.py \
- -reducer  reducer.py
+ -mapper  mapper.py \
+ -reducer reducer.py
 
 hdfs dfs -cat /user/$USER/assignment2/task2/part-* | head -20 > output.out
