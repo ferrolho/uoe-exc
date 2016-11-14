@@ -35,4 +35,4 @@ if userId == prev_userId:
 		best_userQuestionIds = set(userQuestionIds)
 		best_userQuestionIdsLength = len(userQuestionIds)
 
-print(best_userId, str(sorted(best_userQuestionIds)).strip('[]'), sep='\t')
+print(best_userId, str(sorted(best_userQuestionIds)).strip('[]'), sep=' -> ')
