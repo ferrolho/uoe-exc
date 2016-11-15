@@ -11,6 +11,7 @@ for line in sys.stdin:
 
 	if id == prev_id:
 		userId = tokens[1]
-		print(id), print(id, userId, sep='\t')
+		print(id,      0, sep='\t')
+		print(id, userId, sep='\t')
 	else:
 		prev_id = id
