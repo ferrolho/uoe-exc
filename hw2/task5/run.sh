@@ -6,6 +6,8 @@ hdfs dfs -rm -r /user/$USER/assignment2/task5
 
 hadoop jar /opt/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \
   -D mapreduce.job.name="Task 5 - s1683857" \
+  -D mapreduce.job.output.key.comparator.class=org.apache.hadoop.mapreduce.lib.partition.KeyFieldBasedComparator \
+  -D mapreduce.partition.keycomparator.options="-n" \
   -D mapreduce.job.reduces=1 \
   -files mapper.py,reducer.py \
  -input  /data/assignments/ex2/part3/webLarge.txt \

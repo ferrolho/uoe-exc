@@ -3,12 +3,12 @@
 import random
 import sys
 
-line_min = None
+min_line = None
 
 for line in sys.stdin:
 	random_num = random.uniform(0, 1)
 
-	if not line_min or random_num < line_min[1]:
-		line_min = (line.strip(), random_num)
+	if not min_line or random_num < min_line[0]:
+		min_line = (random_num, line.strip())
 
-print('{}\t{:.50f}'.format(line_min[0], line_min[1]))
+print('{:.50f}\t{}'.format(min_line[0], min_line[1]))
