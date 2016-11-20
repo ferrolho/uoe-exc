@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 
 from bitarray import bitarray
-import hashlib
 import math
-import mmh3
 import sys
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -24,9 +22,7 @@ def eprint(*args, **kwargs):
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 def doubleHash(i, key, m):
-	hash_object = hashlib.sha256(key)
-	hex_dig = hash_object.hexdigest()
-	return (mmh3.hash(key) + i * int(hex_dig, 16)) % m
+	return (hash(key) + i * hash(key)) % m
 
 def filterPos(i, key):
 	return doubleHash(i, key, m)
