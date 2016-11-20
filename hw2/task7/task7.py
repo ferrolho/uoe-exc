@@ -2,7 +2,6 @@
 
 from bitarray import bitarray
 import math
-import random
 import sys
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -22,20 +21,19 @@ def eprint(*args, **kwargs):
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+def filterPos(i, key):
+	return hash('{}_{}'.format(i, key)) % m
+
 # Adds key to the set
 def insert(key):
 	for i in range(k):
-		hash_key = '{}_{}'.format(i, key)
-		filter_pos = hash(hash_key) % m
-		filter[filter_pos] = 1
+		filter[filterPos(i, key)] = 1
 
 # If key is *definitely not* in the set, return 'False'.
 # Returning 'True' means it *may be* or not in the set - do costly check.
 def query(key):
 	for i in range(k):
-		hash_key = '{}_{}'.format(i, key)
-		filter_pos = hash(hash_key) % m
-		if not filter[filter_pos]:
+		if not filter[filterPos(i, key)]:
 			return False
 	return True
 
