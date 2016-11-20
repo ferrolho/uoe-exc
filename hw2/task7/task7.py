@@ -75,7 +75,7 @@ else:
 
 	# Approximately de-duplicate lines in input file
 	for line in sys.stdin:
-		line = line.strip().encode()
+		line = line.strip()
 
 		if not query(line):
 			insert(line)
