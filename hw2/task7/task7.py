@@ -2,6 +2,7 @@
 
 from bitarray import bitarray
 import math
+import mmh3
 import sys
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -21,8 +22,11 @@ def eprint(*args, **kwargs):
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+def doubleHash(i, key, m):
+	return (mmh3.hash(key) + i * mmh3.hash(key)) % m
+
 def filterPos(i, key):
-	return hash('{}_{}'.format(i, key)) % m
+	return doubleHash(i, key, m)
 
 # Adds key to the set
 def insert(key):
