@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 from bitarray import bitarray
-import hashlib
 import math
 import sys
 
@@ -23,10 +22,7 @@ def eprint(*args, **kwargs):
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 def filterPos(i, key):
-	i_key = '{}_{}'.format(i, key)
-	hash_object = hashlib.sha1(i_key.encode('utf-8'))
-	hex_dig = hash_object.hexdigest()
-	return int(hex_dig, 16) % m
+	return hash('{}_{}'.format(i, key)) % m
 
 # Adds key to the set
 def insert(key):
