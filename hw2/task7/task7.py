@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 from bitarray import bitarray
+import hashlib
 import math
 import mmh3
 import sys
@@ -23,7 +24,9 @@ def eprint(*args, **kwargs):
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 def doubleHash(i, key, m):
-	return (mmh3.hash(key) + i * mmh3.hash(key)) % m
+	hash_object = hashlib.sha256(key)
+	hex_dig = hash_object.hexdigest()
+	return (mmh3.hash(key) + i * int(hex_dig, 16)) % m
 
 def filterPos(i, key):
 	return doubleHash(i, key, m)
@@ -67,9 +70,16 @@ else:
 	# Optimal no. of hashing functions
 	k = math.ceil((m / n) * math.log(2))
 
+	# Print stats (not to stdout)
+	eprint('FPR:', FPR)
+	eprint('Elems to be inserted:', n)
+	eprint('Bits per key:', bitsPerKey)
+	eprint('Bits in filter (filter size):', m)
+	eprint('No. hash functions:', k)
+
 	# Approximately de-duplicate lines in input file
 	for line in sys.stdin:
-		line = line.strip()
+		line = line.strip().encode()
 
 		if not query(line):
 			insert(line)
