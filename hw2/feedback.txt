@@ -6,3 +6,5 @@ Task 5 Mark: 0.5 # no sampling in reducer (-1.5pt),  uniform sampling instead of
 Task 6 Mark: 3   # Good!
 Task 7 Mark: 3   #
 Task 8 Mark: 0.0 # Not implemented.
+
+Total: 19.5/25
