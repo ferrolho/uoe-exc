@@ -1,0 +1,8 @@
+Task 1 Mark: 4   # Nice use of combiners.
+Task 2 Mark: 2   #
+Task 3 Mark: 3   # Great!
+Task 4 Mark: 4   # Great!
+Task 5 Mark: 0.5 # no sampling in reducer (-1.5pt),  uniform sampling instead of reservoir in mapper (-1pt)
+Task 6 Mark: 3   # Good!
+Task 7 Mark: 3   #
+Task 8 Mark: 0.0 # Not implemented.
